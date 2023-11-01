@@ -1,0 +1,800 @@
+        /* Reset */
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Typography */
+        html {
+            font-size: 18px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Sarabun', sans-serif;
+            line-height: 1.55;
+            color: rgb(60, 58, 71);
+            overflow-x: hidden;
+        }
+
+        html, body {
+            box-sizing: border-box;
+        }
+        
+        .logo-container img {
+            width: 6.5rem;
+        }
+
+        .nav-bar {
+            padding: 8px 32px 16px 80px;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center; 
+            position: sticky;
+            top: 0;
+            z-index: 1000; /* Ensure that the nav-bar is above other elements on the page */
+            background-color: white; /* Add a background color to ensure it covers any content scrolling behind it */
+            /* Existing properties ... */
+        }
+
+        .nav-bar-options ul {
+            list-style-type: none; /* Remove dot-points */
+            display: flex; /* Align list items in a line */
+            gap: 15px; /* Add some spacing between items */
+        }
+
+        .nav-bar-options a {
+            text-decoration: none;
+            padding: 5px 10px; /* Add some padding for better click target and aesthetics */
+            color: black;
+        }
+
+        .nav-bar-btn {
+            order: 2; /* Ensures the button is always the last element in the flex order */
+        }
+
+        .nav-bar-btn button {
+            padding: 0.65rem 2.25rem;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            color: white;
+            background: linear-gradient(45deg, #4FCEB7, #4853DB);
+            font-size: 1rem;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 600;
+        }
+
+        .hero-sec {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .hero-sec h1 {
+            font-size: 4rem;
+            line-height: 4rem;
+            margin-bottom: 2rem;
+            margin-top: 4rem;
+        }
+
+        .hero-sec h3 {
+            font-size: 1.5rem;
+            font-weight: 425;
+        }
+
+        .hero-img img {
+            width: 33rem;
+            height: 28rem
+        }
+
+        .grad-text {
+            background: linear-gradient(45deg, #4FCEB7, #4853DB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+        
+        /* Navbar Options */
+        .nav-bar-options a:hover {
+            position: relative;
+        }
+
+        .nav-bar-options a::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #4FCEB7;
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.3s ease-in-out 0s;
+        }
+
+        .nav-bar-options a:hover::before {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+
+        .nav-bar-btn button:active {
+            transform: scale(0.98);
+            transition: transform 0.1s;
+        }
+
+        /* Button Hover, Focus & Active Effects */
+        .nav-bar-btn button:hover {
+            background: linear-gradient(50deg, #4FCEB7, #4853DB);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+            transition: all 0.3s;
+        }
+
+        .nav-bar-btn button:active {
+            transform: translateY(0);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+
+        /* Button Hover, Focus, Active & Underline Effects */
+        .nav-bar-btn button {
+            position: relative;
+            /* overflow: hidden; */
+        }
+
+        .nav-bar-btn button::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: white; /* Color of the underline, you can change it if needed */
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-bar-btn button:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .nav-bar-btn button:hover {
+            background: linear-gradient(50deg, #4FCEB7, #4853DB);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+            transition: all 0.3s;
+        }
+
+
+        .h2-text{
+            font-size: 1.75rem;
+        }
+
+        .how-it-works h2 {
+            margin-left: 80px;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .how-it-works p {
+            background-color: #f1f4f9;
+        }
+        
+        .p-text {
+            font-size: 1.25rem;
+            font-weight: 500;
+            padding-left: 80px;
+            padding-top: 24px;
+        }
+        
+        .icon-tabs {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            background-color: #f1f4f9;
+            padding-left: 80px;
+            padding-top: 32px;
+            padding-bottom: 64px;
+            opacity: 0;  /* Initially hidden, will animate to visible */
+            animation: fadeIn 1s forwards 0.5s;  /* Fade-in animation after a 0.5s delay */
+        }
+        
+        .grey-background {
+            background-color: #f1f4f9;;
+        }
+        .icon {
+            display: flex;              /* Set the .icon as a flex container */
+            flex-direction: column;     /* Content stacks vertically */
+            align-items: center;        /* Centers content horizontally */
+            justify-content: center;    /* Centers content vertically */
+            width: 12rem;
+            height: 11rem;
+            border-radius: 1rem;
+            background-color: white;
+            transition: all 0.3s;  /* Smooth transition for hover effects and animations */
+            opacity: 0;  /* Initially hidden, will animate to visible */
+            transform: translateY(20px);  /* Icons start slightly lower *//
+        }
+
+        .icon:hover {
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);  /* Slight shadow on hover */
+            transform: translateY(-5px) scale(1.02);  /* Slight elevation and scaling on hover */
+        }
+
+        
+        .icon img {
+            margin-bottom: 10px;       /* Optionally add some space between the image and the paragraph */
+            width: 2.5rem;
+        }
+        
+        .icon p {
+            background-color: white;
+            text-align: center;
+        }
+
+        .last-icon img {
+            width: 3.5rem;
+        }
+
+        .hori-line {
+            border: none;  /* Removes the default border of the <hr> */
+            height: 4px;   /* Makes it thicker, adjust as needed */
+            background: linear-gradient(45deg, #4FCEB7, #4853DB);
+            border-radius: 2.5px;  /* Half of the height to ensure fully rounded edges */   
+        }
+
+        .how-it-works hr {
+            width: 45rem;
+        }
+
+
+        /* Animation keyframes */
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        @keyframes iconFadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .how-we-teach-container {   
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .how-we-teach h2 {
+            text-align: end;
+            padding-right: 280px;
+            padding-top: 56px;
+            font-size: 2.75rem;
+            margin-bottom: 24px;
+        }
+
+        .how-we-teach {
+            position: relative;  /* Make it a positioning context */
+        }
+        
+        .how-we-teach hr {
+            width: 35rem;
+            display: inline-block;
+            text-align: right;
+            position: absolute;  /* Takes the <hr> out of the document flow */
+            right: 0;
+        }
+
+        .how-we-teach p {
+            margin-right: 64px;
+            margin-top: 24px;
+        }
+
+        .how-we-teach img {
+            width: 30rem;
+            height: 22rem;
+            position: relative;
+            bottom: 5rem;
+        }
+
+        /* The elements with this class will be initially hidden */
+        .fade-in-element {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s;
+        }
+
+        /* This class is applied to show the element */
+        .fade-in-element.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .special-testimony-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 80px;
+            margin-top: -5rem;
+        }
+
+        .testimony {
+            background-color: white;
+            border: solid 4px black;
+            border-radius: 10px 0px 0px 10px;
+            width: 35rem;
+            height: 35rem;
+        }
+
+        .testimony p {
+            font-style: italic;
+            position: relative;
+            right: 1.5rem;
+            top: 2.75rem;
+        }
+
+        .student {
+            background-color: #262626;
+            color: white;
+            text-align: center;
+            padding: 15rem 1rem 1rem 1rem;
+            width: 25rem;
+            border-right: 4px solid black;
+            border-bottom: 4px solid black;
+            border-top: 4px solid black;
+            border-radius: 0px 10px 10px 0px;
+        }
+
+        .student h2 {
+            font-weight: 500;
+            font-size: 1.5rem;
+        }
+
+        .hori-line-3 {
+            width: 100%;        /* Take the full width of its parent */
+            text-align: right;  /* Align children to the right */
+        }
+        
+        .hori-line-3 .hori-line {
+            width: 25rem;       /* Use your desired width */
+            display: inline-block; /* Allows the HR to be affected by text-align */
+            position: relative;
+        }
+
+        .hori-line-4 {
+            width: 35rem;
+            position: relative;
+            bottom: 4.65rem;
+        }
+
+        .trusted-by h2 {
+            text-align: center;
+            font-weight: 600;
+            font-size: 2.5rem;
+            margin-bottom: 32px;
+        }
+
+        .school-logo-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            padding: 2rem;
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .penrith-hs img {
+            width: 8.5rem;
+        }
+
+        .cumberland-hs img {
+            width: 10.5rem;
+            margin-bottom: 2.9rem;
+        }
+
+        .cherrybrook-hs img {
+            width: 9.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .strathfield-hs img {
+            width: 9.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .trusted-by > img:nth-child(1) {
+            rotate: -50deg;
+            width: 5rem;
+            position: relative;
+            right: 1rem;
+        }
+        
+
+        .trusted-by > img:last-child {
+            rotate: 50deg;
+            width: 5rem;
+            margin-bottom: 1rem;
+            position: absolute;
+            right: -1rem;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        
+        .fade-in {
+            animation-name: fadeIn;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+            opacity: 0;
+        }
+        
+        /* Define keyframes for rotation */
+        @keyframes rotateIn {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(-20deg); /* Adjust if needed */
+            }
+        }
+        
+        @keyframes rotateInLast {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(30deg); /* Adjust if needed */
+            }
+        }
+        
+        .pricing hr {
+            margin-top: 5rem;
+        }
+
+        .pricing-text > hr:first-child {
+            width: 35rem;
+        }
+
+        .pricing-text > hr:last-child {
+            width: 20rem;
+            position: relative;
+            left: 50rem;
+            bottom: 9.1rem;
+        }
+
+        .pricing-text h2 {
+            background: linear-gradient(0deg, #4FCEB7, #4853DB);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            /* You might also want to add */
+            -webkit-text-fill-color: transparent;
+            font-size: 2.5rem;
+            position: relative;
+            left: 38.5rem;
+            bottom: 2.5rem;
+        }
+
+        .pricing-tab {
+            width: 20rem;
+            height: 25rem;
+            background-color: rgb(0, 0, 0, 0.825);
+            padding: 1rem;
+            margin-left: 80px;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .pricing-tab h3 {
+            color: white;
+            text-align: center;
+            font-size: 2.5rem;
+            line-height: 3rem;
+            margin-top: 1rem;
+        }
+
+        .pricing-tab > p:first-child{
+            text-align: center;
+            margin-bottom: -5rem;
+            font-weight: 600;
+            font-size: 1.75rem;
+        }
+
+        .pricing-tab-container {
+            margin-top: -10rem;
+        }
+
+        .pricing-para {
+            position: relative;
+            left: 27rem;
+            bottom: 4rem;
+        }
+
+        .pricing-tab-container >p:nth-child(2) {
+            color: black;
+            position: relative;
+            margin-left: 27rem;
+            bottom: 25rem;
+        }
+
+        .pricing-tab hr {
+            height: 3px; 
+            border-radius: 2.5px; 
+            background-color: white;
+        }
+
+        .pricing-tab ul {
+            margin-left: 1.75rem;
+            margin-top: 3rem;
+            font-size: 1rem;
+        }
+
+        .pricing-tab-2 {
+            position: relative;
+            bottom: 17rem;
+            left: 22.5rem;
+        } 
+
+        .pricing-book-trial {
+            padding: 1.35rem 7rem;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            color: white;
+            background: rgb(0, 0, 0, 0.825);
+            font-size: 1.35rem;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 600;
+        }
+
+        .pricing-book-trial:active {
+            transform: scale(0.98);
+            transition: transform 0.1s;
+        }
+
+        /* Button Hover, Focus & Active Effects */
+        .pricing-book-trial:hover {
+            color: black;
+            background-color: white;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border: 2px solid black;
+            transform: translateY(-2px);
+            transition: all 0.3s;
+        }
+
+        .pricing-book-trial:active {
+            transform: translateY(0);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+
+        /* Button Hover, Focus, Active & Underline Effects */
+        .pricing-book-trial {
+            position: relative;
+            /* overflow: hidden; */
+            bottom: 23rem;
+            left: 4.4rem;
+        }
+
+        .pricing-book-trial::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: white; /* Color of the underline, you can change it if needed */
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .pricing-book-trial:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+
+        .form-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: -15rem;
+        }
+        
+        .form-section > h2:nth-child(1) {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgb(0, 0, 0, 1);
+            height: 50rem;
+            color: white;
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+            width: 100%;
+        }
+        
+        .form-container h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: white;
+        }
+        
+        .form-container p {
+            text-align: center;
+            margin-top: 1rem;
+        }
+        
+        .fill-in-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 5rem;
+        }        
+
+        input {
+            padding: 1rem;
+            border: none;
+            width: 45rem;
+            font-family: 'Sarabun', sans-serif;
+            margin-bottom: 2rem;
+            background-color: transparent;
+            border-bottom: 2px solid #4FCEB7;
+            color: white;
+            font-size: 1rem;
+            transition: box-shadow 0.3s, transform 0.3s; /* Added transition for smooth effect */
+        }
+        
+        input:hover {
+            transform: translateY(-2px); /* Slightly raises the input field */
+        }
+        
+        input:focus {
+            border-color: white;
+            outline: none;
+        }
+        
+        input::placeholder {
+            color: white;
+            font-size: 1rem;
+        }
+        
+
+        .book-trial-button {
+            padding: 1.35rem 7rem;
+            border-radius: 1px;
+            border: none;
+            cursor: pointer;
+            color: rgb(0, 0, 0, 0.825);
+            background: white;
+            font-size: 1.35rem;
+            font-family: 'Sarabun', sans-serif;
+            font-weight: 600;
+        }
+
+        .book-trial-button:active {
+            transform: scale(0.98);
+            transition: transform 0.1s;
+        }
+
+        /* Button Hover, Focus & Active Effects */
+        .book-trial-button:hover {
+            color: white;
+            background-color: rgb(0, 0, 0, 0.825);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-top: 2px solid white;
+            border-left: 2px solid white;
+            border-right: 2px solid white;
+            transform: translateY(-2px);
+            transition: all 0.3s;
+        }
+
+        .book-trial-button:active {
+            transform: translateY(0);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+        .book-trial-button::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background:white;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.75s ease;
+        }
+
+        .book-trial-button:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .comp-logo img {
+            width: 6rem;
+        }
+        
+
+        .footer-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            padding: 3rem;
+            padding-left: 80px;
+            gap: 15rem;
+            background-color: #f1f4f9;
+            margin-bottom: -3.5rem;
+        }
+
+        .summary p, .contact-info p, .classes-info p {
+            font-size: 0.65rem;
+            margin-top: 0.5rem;
+        } 
+
+        .contact-info a{
+            color: black;
+            text-decoration: none;
+        }
+
+        .contact-info p:hover {
+            text-decoration: underline;
+        }
+
+
+
+        .custom-footer {
+            text-align: center; /* Centering the content */
+            padding: 20px 0; /* Providing some spacing above and below the footer content */
+            background-color: #f1f4f9;
+        }
+        
+        .footer-divider {
+            background-color: black;
+            border: 1px solid rgba(0, 0, 0, 0.825);
+            margin-left: 80px;
+            margin-right: 80px;
+            display: block;
+            width: calc(100% - 160px);
+        }
+        
+        .footer-content {
+            margin-top: 20px; /* Space between <hr> and the footer text */
+            display: flex;
+            justify-content: center; /* Center the content horizontally */
+            gap: 20px; /* Space between each item */
+        }
+        
+        .footer-brand, .footer-link {
+            margin: 0; /* Removing vertical margins to keep them aligned */
+        }
+        
+        .footer-link a {
+            color: inherit; /* Ensuring the link color matches the surrounding text */
+            text-decoration: none; /* Removing the default link underline */
+        }
+        
+        .footer-link a:hover {
+            text-decoration: underline; /* Adding underline on hover for better user experience */
+        }
+        
+        
+
+
+
+
+
+
+
+
+
+
+
