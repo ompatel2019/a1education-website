@@ -90,7 +90,6 @@
 
         .grad-text {
             background: linear-gradient(45deg, #4FCEB7, #4853DB);
-            -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: inline-block;
         }
